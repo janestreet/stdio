@@ -1,0 +1,8 @@
+version = "0.1.alpha1"
+description = "Standard IO library for OCaml"
+requires = "base base.caml"
+archive(byte  ) = "stdio.cma"
+archive(native) = "stdio.cmxa"
+plugin(byte  ) = "stdio.cma"
+plugin(native) = "stdio.cmxs"
+exists_if = "stdio.cma"
