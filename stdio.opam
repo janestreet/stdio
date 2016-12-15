@@ -11,6 +11,8 @@ build: [
 depends: [
   "base"
   "jbuilder"
+  "ppx_driver"
+  "ppx_js_style"
 ]
 available: [ ocaml-version >= "4.03.0" ]
 descr: "
