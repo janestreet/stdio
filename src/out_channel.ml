@@ -35,6 +35,7 @@ let output_string = Caml.output_string
 let output_char = Caml.output_char
 let output_byte = Caml.output_byte
 let output_binary_int = Caml.output_binary_int
+let output_buffer = Caml.Buffer.output_buffer
 let output_value = Caml.output_value
 
 let newline t = output_string t "\n"

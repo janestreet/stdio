@@ -1,7 +1,5 @@
 open! Import
 
-module Buffer = Caml.Buffer
-
 type t = Caml.in_channel
 
 let seek   = Caml.LargeFile.seek_in
@@ -31,6 +29,7 @@ let input_byte t = may_eof (fun () -> Caml.input_byte t)
 let input_char t = may_eof (fun () -> Caml.input_char t)
 let input_binary_int t = may_eof (fun () -> Caml.input_binary_int t)
 let unsafe_input_value t = may_eof (fun () -> Caml.input_value t)
+let input_buffer t buf ~len = may_eof (fun () -> Caml.Buffer.add_channel buf t len)
 
 let set_binary_mode = Caml.set_binary_mode_in
 
@@ -42,7 +41,7 @@ let input_all t =
   let rec loop () =
     let len = input t ~buf ~pos:0 ~len:(String.length buf) in
     if len > 0 then begin
-      Buffer.add_substring buffer buf 0 len;
+      Buffer.add_substring buffer buf ~pos:0 ~len;
       loop ();
     end
   in

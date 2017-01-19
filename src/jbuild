@@ -2,7 +2,11 @@
  ((name stdio)
   (public_name stdio)
   (libraries (base base.caml))
-  (preprocess (pps (ppx_js_style -check-doc-comments)))
+  ;; Same comment as for Base
+  (preprocess no_preprocessing)
+  (lint (pps (ppx_base -check-doc-comments -no-optcomp
+                    -type-conv-keep-w32=impl
+                    -apply=js_style,type_conv)))
   (js_of_ocaml ())))
 
 (enforce_style ())

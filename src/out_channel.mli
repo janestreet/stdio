@@ -47,6 +47,7 @@ val output_string : t -> string -> unit
 val output_char : t -> char -> unit
 val output_byte : t -> int -> unit
 val output_binary_int : t -> int -> unit
+val output_buffer : t -> Buffer.t -> unit
 val output_value : t -> _ -> unit  (** OCaml's internal Marshal format *)
 
 val newline : t -> unit

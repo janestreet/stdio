@@ -51,6 +51,12 @@ val input_binary_int : t -> int option
 (** Ocaml's built-in marshal format *)
 val unsafe_input_value : t -> _ option
 
+(** [input_buffer t buf ~len] reads at most [len] characters from the input channel [t]
+    and stores them at the end of buffer [buf].  Return [None] if the channel contains
+    fewer than [len] characters. In this case, the characters are still added to the
+    buffer, so as to avoid loss of data. *)
+val input_buffer : t -> Buffer.t -> len:int -> unit option
+
 val input_all : t -> string
 
 (** [input_line ?fix_win_eol t] reads a line from [t] and returns it, without
