@@ -6,7 +6,7 @@
   (preprocess no_preprocessing)
   (lint (pps (ppx_base -check-doc-comments -no-optcomp
                     -type-conv-keep-w32=impl
-                    -apply=js_style,type_conv)))
+                    -apply=js_style,type_conv ppx_driver.runner)))
 ))
 
 
