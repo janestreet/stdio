@@ -9,6 +9,14 @@ let length = Caml.LargeFile.out_channel_length
 let stdout = Caml.stdout
 let stderr = Caml.stderr
 
+let sexp_of_t t =
+  if phys_equal t stderr
+  then Sexp.Atom "<stderr>"
+  else if phys_equal t stdout
+  then Sexp.Atom "<stdout>"
+  else Sexp.Atom "<Out_channel.t>"
+;;
+
 type 'a with_create_args =
   ?binary:bool
   -> ?append:bool

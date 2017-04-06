@@ -1,6 +1,8 @@
 open! Import
 
-type t = Caml.out_channel
+type t = Caml.out_channel [@@deriving_inline sexp_of]
+include sig [@@@ocaml.warning "-32"] val sexp_of_t : t -> Sexplib.Sexp.t end
+[@@@end]
 
 val stdout : t
 val stderr : t
