@@ -29,11 +29,11 @@ val with_file : ?binary:bool (** defaults to [true] *) -> string -> f:(t -> 'a) 
     exception. *)
 val close : t -> unit
 
-val input : t -> buf:string -> pos:int -> len:int -> int
-val really_input     : t -> buf:string -> pos:int -> len:int -> unit option
+val input : t -> buf:bytes -> pos:int -> len:int -> int
+val really_input     : t -> buf:bytes -> pos:int -> len:int -> unit option
 
 (** Same as [Pervasives.really_input], for backwards compatibility *)
-val really_input_exn : t -> buf:string -> pos:int -> len:int -> unit
+val really_input_exn : t -> buf:bytes -> pos:int -> len:int -> unit
 
 (** Read one character from the given input channel.  Return [None] if there are no more
     characters to read. *)

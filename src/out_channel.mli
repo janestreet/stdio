@@ -44,8 +44,10 @@ val set_binary_mode : t -> bool -> unit
 
 val flush : t -> unit
 
-val output : t -> buf:string -> pos:int -> len:int -> unit
+val output : t -> buf:bytes -> pos:int -> len:int -> unit
 val output_string : t -> string -> unit
+val output_substring : t -> buf:string -> pos:int -> len:int -> unit
+val output_bytes : t -> Bytes.t -> unit
 val output_char : t -> char -> unit
 val output_byte : t -> int -> unit
 val output_binary_int : t -> int -> unit

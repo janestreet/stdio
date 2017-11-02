@@ -39,7 +39,9 @@ let flush = Caml.flush
 let close = Caml.close_out
 
 let output t ~buf ~pos ~len = Caml.output t buf pos len
+let output_substring t ~buf ~pos ~len = Caml.output_substring t buf pos len
 let output_string = Caml.output_string
+let output_bytes = Caml.output_bytes
 let output_char = Caml.output_char
 let output_byte = Caml.output_byte
 let output_binary_int = Caml.output_binary_int

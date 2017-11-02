@@ -36,12 +36,12 @@ let set_binary_mode = Caml.set_binary_mode_in
 let input_all t =
   (* We use 65536 because that is the size of OCaml's IO buffers. *)
   let buf_size = 65536 in
-  let buf = String.create buf_size in
+  let buf = Bytes.create buf_size in
   let buffer = Buffer.create buf_size in
   let rec loop () =
-    let len = input t ~buf ~pos:0 ~len:(String.length buf) in
+    let len = input t ~buf ~pos:0 ~len:(Bytes.length buf) in
     if len > 0 then begin
-      Buffer.add_substring buffer buf ~pos:0 ~len;
+      Buffer.add_subbytes buffer buf ~pos:0 ~len;
       loop ();
     end
   in
