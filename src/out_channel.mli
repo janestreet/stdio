@@ -40,6 +40,9 @@ val with_file : (string -> f:(t -> 'a) -> 'a) with_create_args
 *)
 val close : t -> unit
 
+(** [close_no_err] tries to flush and close [t]. It does not raise.*)
+val close_no_err : t -> unit
+
 val set_binary_mode : t -> bool -> unit
 
 val flush : t -> unit

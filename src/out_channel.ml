@@ -37,6 +37,7 @@ let set_binary_mode = Caml.set_binary_mode_out
 let flush = Caml.flush
 
 let close = Caml.close_out
+let close_no_err = Caml.close_out_noerr
 
 let output t ~buf ~pos ~len = Caml.output t buf pos len
 let output_substring t ~buf ~pos ~len = Caml.output_substring t buf pos len
