@@ -1,13 +1,12 @@
-(** [In_channel] collects all of the pervasive functions that work on in_channels.
-    - It adds some new functions (like [input_all] and [input_lines]).
-    - It names things using the fact that there is no worry about toplevel name
-    conflicts (since we are in a module).
-    - It uses labelled arguments.
-    - It returns an option rather than raising End_of_file.
+(** An input channel for doing blocking reads from input sources like files and sockets.
 
-    Note that an [in_channel] is a custom block with a finalizer, and so is allocated
+    Note that an [In_channel.t] is a custom block with a finalizer, and so is allocated
     directly to the major heap. Creating a lot of in_channels can result in many major
-    collections and poor performance. *)
+    collections and poor performance.
+
+    Note that this is simply another interface on the [in_channel] type in the OCaml
+    standard library.
+*)
 
 open! Import
 

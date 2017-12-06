@@ -1,3 +1,4 @@
+open Base
 open! Import
 
 type t = Caml.out_channel

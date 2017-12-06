@@ -1,2 +1,1 @@
-include Base
-module Sexplib = Exported_for_specific_uses.Sexplib
+module Sexplib = Base.Exported_for_specific_uses.Sexplib

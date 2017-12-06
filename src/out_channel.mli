@@ -1,3 +1,13 @@
+(** An output channel for doing blocking writes to destinations like files and sockets.
+
+    Note that an [Out_channel.t] is a custom block with a finalizer, and so is allocated
+    directly to the major heap. Creating a lot of out_channels can result in many major
+    collections and poor performance.
+
+    Note that this is simply another interface on the [out_channel] type in the OCaml
+    standard library.
+*)
+
 open! Import
 
 type t = Caml.out_channel [@@deriving_inline sexp_of]
