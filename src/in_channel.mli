@@ -8,9 +8,12 @@
     standard library.
 *)
 
+open! Base
 open! Import
 
 type t = Caml.in_channel
+
+include Equal.S with type t := t
 
 val stdin : t
 

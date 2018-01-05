@@ -1,7 +1,9 @@
-open Base
+open! Base
 open! Import
 
 type t = Caml.out_channel
+
+let equal (t1 : t) t2 = phys_equal t1 t2
 
 let seek   = Caml.LargeFile.seek_out
 let pos    = Caml.LargeFile.pos_out
