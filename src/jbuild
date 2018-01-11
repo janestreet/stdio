@@ -1,7 +1,7 @@
 (library
  ((name stdio)
   (public_name stdio)
-  (libraries (sexplib base base.caml))
+  (libraries (base base.caml))
   (flags (:standard -safe-string))
   ;; Same comment as for Base
   (preprocess no_preprocessing)
