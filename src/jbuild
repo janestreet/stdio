@@ -5,7 +5,7 @@
   (flags (:standard -safe-string))
   ;; Same comment as for Base
   (preprocess no_preprocessing)
-  (lint (pps (ppx_base -check-doc-comments -no-optcomp
+  (lint (pps (ppx_base -check-doc-comments 
                     -type-conv-keep-w32=impl
                     -apply=js_style,type_conv ppx_driver.runner)))
 ))
