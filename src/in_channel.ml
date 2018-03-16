@@ -53,10 +53,13 @@ let input_all t =
 ;;
 
 let trim ~fix_win_eol line =
-  if fix_win_eol
-  && String.length line > 0
-  && Char.equal (String.nget line (-1)) '\r'
-  then String.slice line 0 (-1)
+  if fix_win_eol then begin
+    let len = String.length line in
+    if len > 0
+    && Char.equal (String.get line (len - 1)) '\r'
+    then String.sub line ~pos:0 ~len:(len - 1)
+    else line
+  end
   else line
 
 let input_line ?(fix_win_eol = true) t =
