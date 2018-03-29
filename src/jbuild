@@ -2,7 +2,6 @@
  ((name stdio)
   (public_name stdio)
   (libraries (base base.caml))
-  (flags (:standard -safe-string))
   ;; Same comment as for Base
   (preprocess no_preprocessing)
   (lint (pps (ppx_base -check-doc-comments
