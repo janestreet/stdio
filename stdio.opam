@@ -12,7 +12,7 @@ depends: [
   "base"
   "jbuilder" {build & >= "1.0+beta18.1"}
 ]
-available: [ ocaml-version >= "4.04.1" ]
+available: [ ocaml-version >= "4.04.2" ]
 descr: "
 Standard IO library for OCaml
 
