@@ -86,6 +86,10 @@ val fprintf : t -> ('a, t, unit) format -> 'a
 (** [printf fmt] is the same as [fprintf stdout fmt] *)
 val printf : ('a, t, unit) format -> 'a
 
+(** [print_s sexp] outputs [sexp] on [stdout], by default using [Sexp.to_string_hum],
+    or, with [~mach:()], [Sexp.to_string_mach]. *)
+val print_s : ?mach : unit -> Sexp.t -> unit
+
 (** [printf fmt] is the same as [fprintf stderr fmt] *)
 val eprintf : ('a, t, unit) format -> 'a
 

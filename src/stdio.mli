@@ -16,6 +16,9 @@ val stderr : Out_channel.t
 (** Same as {!Out_channel.printf} *)
 val printf : ('a, Out_channel.t, unit) format -> 'a
 
+(** Same as {!Out_channel.print_s} *)
+val print_s : ?mach : unit -> Sexp.t -> unit
+
 (** Same as {!Out_channel.eprintf} *)
 val eprintf : ('a, Out_channel.t, unit) format -> 'a
 

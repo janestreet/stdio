@@ -1,3 +1,7 @@
+## git version
+
+- Added function `Out_channel.print_s`.
+
 ## v0.10
 
 - Enabled `-safe-string`.
