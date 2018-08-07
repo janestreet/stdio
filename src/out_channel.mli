@@ -62,6 +62,7 @@ val set_binary_mode : t -> bool -> unit
 
 val flush : t -> unit
 
+(** These raise in some cases. *)
 val output : t -> buf:bytes -> pos:int -> len:int -> unit
 val output_string : t -> string -> unit
 val output_substring : t -> buf:string -> pos:int -> len:int -> unit
