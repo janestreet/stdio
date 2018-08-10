@@ -6,6 +6,10 @@
 
     Note that this is simply another interface on the [out_channel] type in the OCaml
     standard library.
+
+    As for the output functions in the standard library, all the functions in this module,
+    unless otherwise specified,  can raise [Sys_error] when the system calls they invoke
+    fail.
 *)
 
 open! Base
@@ -28,6 +32,7 @@ type 'a with_create_args =
   -> ?fail_if_exists:bool (** defaults to [false] *)
   -> ?perm:int
   -> 'a
+
 
 val create : (string -> t) with_create_args
 val with_file : (string -> f:(t -> 'a) -> 'a) with_create_args
@@ -62,7 +67,6 @@ val set_binary_mode : t -> bool -> unit
 
 val flush : t -> unit
 
-(** These raise in some cases. *)
 val output : t -> buf:bytes -> pos:int -> len:int -> unit
 val output_string : t -> string -> unit
 val output_substring : t -> buf:string -> pos:int -> len:int -> unit
@@ -113,5 +117,6 @@ val length : t -> int64
 (** The first argument of these is the file name to write to. *)
 val write_lines : string -> string list -> unit
 val write_all : string -> data:string -> unit
+
 
 
