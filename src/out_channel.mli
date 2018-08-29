@@ -102,6 +102,9 @@ val eprintf : ('a, t, unit) format -> 'a
     immediately, passes the out channel to [k] at the end of printing. *)
 val kfprintf : (t -> 'a) -> t -> ('b, t, unit, 'a) format4 -> 'b
 
+(** [print_string s] = [output_string stdout s] *)
+val print_string : string -> unit
+
 (** [print_endline str] outputs [str] to [stdout] followed by a newline then flushes
     [stdout] *)
 val print_endline : string -> unit
