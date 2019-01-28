@@ -18,7 +18,7 @@ open! Import
 type t = Caml.out_channel [@@deriving_inline sexp_of]
 include
 sig [@@@ocaml.warning "-32"] val sexp_of_t : t -> Ppx_sexp_conv_lib.Sexp.t
-end
+end[@@ocaml.doc "@inline"]
 [@@@end]
 
 include Equal.S with type t := t
