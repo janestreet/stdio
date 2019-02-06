@@ -106,6 +106,13 @@ val length : t -> int64
     otherwise *)
 val set_binary_mode : t -> bool -> unit
 
-(** These open the filename, read all lines, and close the file. *)
+
+(** [read_lines filename] reads the full contents of file and returns it as a list of
+    lines, closing the file when it's done.  It's the equivalent of [with_file fname
+    ~f:input_lines] *)
 val read_lines : string -> string list
-val read_all   : string -> string
+
+(** [read_all filename] reads the full contents of file and returns it as a single
+    string, closing the file when it's done.  It's the equivalent of [with_file fname
+    ~f:input_all] *)
+val read_all : string -> string
