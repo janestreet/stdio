@@ -90,6 +90,6 @@ let iter_lines ?fix_win_eol t ~f =
   fold_lines ?fix_win_eol t ~init:() ~f:(fun () line -> f line)
 ;;
 
-let read_lines fname = with_file fname ~f:input_lines
+let read_lines ?fix_win_eol fname = with_file fname ~f:(input_lines ?fix_win_eol)
 
 let read_all fname = with_file fname ~f:input_all
