@@ -74,6 +74,14 @@ let print_s ?mach sexp =
      | None    -> Sexp.to_string_hum  sexp)
 ;;
 
+let eprint_s ?mach sexp =
+  prerr_endline
+    (match mach with
+     | Some () -> Sexp.to_string_mach sexp
+     | None    -> Sexp.to_string_hum  sexp)
+;;
+
+
 let with_file ?binary ?append ?fail_if_exists ?perm file ~f =
   Exn.protectx (create ?binary ?append ?fail_if_exists ?perm file) ~f ~finally:close
 ;;
