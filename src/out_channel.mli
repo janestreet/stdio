@@ -99,7 +99,7 @@ val print_s : ?mach : unit -> Sexp.t -> unit
     or, with [~mach:()], [Sexp.to_string_mach]. *)
 val eprint_s : ?mach : unit -> Sexp.t -> unit
 
-(** [printf fmt] is the same as [fprintf stderr fmt] *)
+(** [eprintf fmt] is the same as [fprintf stderr fmt] *)
 val eprintf : ('a, t, unit) format -> 'a
 
 (** [kfprintf k t fmt] is the same as [fprintf t fmt], but instead of returning
