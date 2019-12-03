@@ -12,7 +12,7 @@ build: [
 depends: [
   "ocaml" {>= "4.04.2"}
   "base"
-  "dune" {>= "1.5.1"}
+  "dune" {>= "2.0.0"}
 ]
 synopsis: "Standard IO library for OCaml"
 description: "
