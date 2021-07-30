@@ -9,7 +9,6 @@
 *)
 
 open! Base
-open! Import
 
 type t = Caml.in_channel
 

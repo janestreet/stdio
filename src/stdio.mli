@@ -1,5 +1,4 @@
 open! Base
-open! Import
 
 module In_channel  = In_channel
 module Out_channel = Out_channel
