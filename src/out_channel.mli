@@ -14,7 +14,7 @@
 
 open! Base
 
-type t = Caml.out_channel [@@deriving_inline sexp_of]
+type t = Stdlib.out_channel [@@deriving_inline sexp_of]
 
 include sig
   [@@@ocaml.warning "-32"]

@@ -1,4 +1,4 @@
-(library (name stdio) (public_name stdio) (libraries base base.caml)
+(library (name stdio) (public_name stdio) (libraries base)
  (preprocess no_preprocessing)
  (lint
   (pps ppx_base -check-doc-comments -type-conv-keep-w32=impl

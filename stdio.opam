@@ -14,6 +14,7 @@ depends: [
   "base"
   "dune" {>= "2.0.0"}
 ]
+available: arch != "arm32" & arch != "x86_32"
 synopsis: "Standard IO library for OCaml"
 description: "
 Stdio implements simple input/output functionalities for OCaml.

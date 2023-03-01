@@ -10,7 +10,7 @@
 
 open! Base
 
-type t = Caml.in_channel
+type t = Stdlib.in_channel
 
 include Equal.S with type t := t
 

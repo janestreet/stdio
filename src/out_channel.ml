@@ -1,13 +1,13 @@
 open! Base
 
-type t = Caml.out_channel
+type t = Stdlib.out_channel
 
 let equal (t1 : t) t2 = phys_equal t1 t2
-let seek = Caml.LargeFile.seek_out
-let pos = Caml.LargeFile.pos_out
-let length = Caml.LargeFile.out_channel_length
-let stdout = Caml.stdout
-let stderr = Caml.stderr
+let seek = Stdlib.LargeFile.seek_out
+let pos = Stdlib.LargeFile.pos_out
+let length = Stdlib.LargeFile.out_channel_length
+let stdout = Stdlib.stdout
+let stderr = Stdlib.stderr
 
 let sexp_of_t t =
   if phys_equal t stderr
@@ -31,22 +31,22 @@ let create
   let flags = (if binary then Open_binary else Open_text) :: flags in
   let flags = (if append then Open_append else Open_trunc) :: flags in
   let flags = if fail_if_exists then Open_excl :: flags else flags in
-  Caml.open_out_gen flags perm file
+  Stdlib.open_out_gen flags perm file
 ;;
 
-let set_binary_mode = Caml.set_binary_mode_out
-let flush = Caml.flush
-let close = Caml.close_out
-let close_no_err = Caml.close_out_noerr
-let output t ~buf ~pos ~len = Caml.output t buf pos len
-let output_substring t ~buf ~pos ~len = Caml.output_substring t buf pos len
-let output_string = Caml.output_string
-let output_bytes = Caml.output_bytes
-let output_char = Caml.output_char
-let output_byte = Caml.output_byte
-let output_binary_int = Caml.output_binary_int
-let output_buffer = Caml.Buffer.output_buffer
-let output_value = Caml.output_value
+let set_binary_mode = Stdlib.set_binary_mode_out
+let flush = Stdlib.flush
+let close = Stdlib.close_out
+let close_no_err = Stdlib.close_out_noerr
+let output t ~buf ~pos ~len = Stdlib.output t buf pos len
+let output_substring t ~buf ~pos ~len = Stdlib.output_substring t buf pos len
+let output_string = Stdlib.output_string
+let output_bytes = Stdlib.output_bytes
+let output_char = Stdlib.output_char
+let output_byte = Stdlib.output_byte
+let output_binary_int = Stdlib.output_binary_int
+let output_buffer = Stdlib.Buffer.output_buffer
+let output_value = Stdlib.output_value
 let newline t = output_string t "\n"
 
 let output_lines t lines =
@@ -55,13 +55,13 @@ let output_lines t lines =
     newline t)
 ;;
 
-let printf = Caml.Printf.printf
-let eprintf = Caml.Printf.eprintf
-let fprintf = Caml.Printf.fprintf
-let kfprintf = Caml.Printf.kfprintf
-let print_string = Caml.print_string
-let print_endline = Caml.print_endline
-let prerr_endline = Caml.prerr_endline
+let printf = Stdlib.Printf.printf
+let eprintf = Stdlib.Printf.eprintf
+let fprintf = Stdlib.Printf.fprintf
+let kfprintf = Stdlib.Printf.kfprintf
+let print_string = Stdlib.print_string
+let print_endline = Stdlib.print_endline
+let prerr_endline = Stdlib.prerr_endline
 
 let print_s ?mach sexp =
   print_endline
