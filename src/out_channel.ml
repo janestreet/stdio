@@ -21,11 +21,11 @@ type 'a with_create_args =
   ?binary:bool -> ?append:bool -> ?fail_if_exists:bool -> ?perm:int -> 'a
 
 let create
-      ?(binary = true)
-      ?(append = false)
-      ?(fail_if_exists = false)
-      ?(perm = 0o666)
-      file
+  ?(binary = true)
+  ?(append = false)
+  ?(fail_if_exists = false)
+  ?(perm = 0o666)
+  file
   =
   let flags = [ Open_wronly; Open_creat ] in
   let flags = (if binary then Open_binary else Open_text) :: flags in

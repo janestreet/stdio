@@ -40,7 +40,6 @@ type 'a with_create_args =
 val create : (string -> t) with_create_args
 val with_file : (string -> f:(t -> 'a) -> 'a) with_create_args
 
-
 (** [close t] flushes and closes [t], and may raise an exception.  [close] returns () and
     does not raise if [t] is already closed.  [close] raises an exception if the close()
     system call on the underlying file descriptor fails (i.e. returns -1), which would
@@ -128,5 +127,3 @@ val length : t -> int64
 val write_lines : string -> string list -> unit
 
 val write_all : string -> data:string -> unit
-
-
