@@ -84,6 +84,9 @@ val newline : t -> unit
 (** Outputs a list of lines, each terminated by a newline character *)
 val output_lines : t -> string list -> unit
 
+(** Outputs a single line, terminated by a newline character. *)
+val output_line : t -> string -> unit
+
 (** Formatted printing to an out channel.  This is the same as [Printf.sprintf] except
     that it outputs to [t] instead of returning a string.  Similarly, the function
     arguments corresponding to conversions specifications such as [%a] or [%t] takes [t]
