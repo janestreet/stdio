@@ -2,8 +2,6 @@
 
 - Added function `Out_channel.print_s`.
 
-- Added function `Out_channel.output_line`.
-
 ## v0.10
 
 - Enabled `-safe-string`.

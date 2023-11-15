@@ -84,7 +84,7 @@ val newline : t -> unit
 (** Outputs a list of lines, each terminated by a newline character *)
 val output_lines : t -> string list -> unit
 
-(** Outputs a single line, terminated by a newline character. *)
+(** Outputs a single line, terminated by a newline character *)
 val output_line : t -> string -> unit
 
 (** Formatted printing to an out channel.  This is the same as [Printf.sprintf] except
