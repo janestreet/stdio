@@ -49,12 +49,12 @@ let output_buffer = Stdlib.Buffer.output_buffer
 let output_value = Stdlib.output_value
 let newline t = output_string t "\n"
 
-let output_lines t lines =
-  List.iter lines ~f:(fun line ->
-    output_string t line;
-    newline t)
+let output_line t line =
+  output_string t line;
+  newline t
 ;;
 
+let output_lines t lines = List.iter lines ~f:(fun line -> output_line t line)
 let printf = Stdlib.Printf.printf
 let eprintf = Stdlib.Printf.eprintf
 let fprintf = Stdlib.Printf.fprintf
