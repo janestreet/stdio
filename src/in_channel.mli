@@ -49,7 +49,7 @@ val input_byte : t -> int option
     reached while reading the integer. *)
 val input_binary_int : t -> int option
 
-(** Ocaml's built-in marshal format *)
+(** OCaml's built-in marshal format *)
 val unsafe_input_value : t -> _ option
 
 (** [input_buffer t buf ~len] reads at most [len] characters from the input channel [t]
