@@ -96,12 +96,14 @@ val fprintf : t -> ('a, t, unit) format -> 'a
 (** [printf fmt] is the same as [fprintf stdout fmt] *)
 val printf : ('a, t, unit) format -> 'a
 
-(** [print_s sexp] outputs [sexp] on [stdout], by default using [Sexp.to_string_hum],
-    or, with [~mach:()], [Sexp.to_string_mach]. *)
+(** [fprint_s t sexp] outputs [sexp] to [t], by default using [Sexp.to_string_hum], or,
+    with [~mach:()], [Sexp.to_string_mach]. *)
+val fprint_s : ?mach:unit -> t -> Sexp.t -> unit
+
+(** [print_s ?mach sexp] is the same as [fprint_s ?mach stdout sexp]. *)
 val print_s : ?mach:unit -> Sexp.t -> unit
 
-(** [eprint_s sexp] outputs [sexp] on [stderr], by default using [Sexp.to_string_hum],
-    or, with [~mach:()], [Sexp.to_string_mach]. *)
+(** [eprint_s ?mach sexp] is the same as [fprint_s ?mach stderr sexp]. *)
 val eprint_s : ?mach:unit -> Sexp.t -> unit
 
 (** [eprintf fmt] is the same as [fprintf stderr fmt] *)

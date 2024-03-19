@@ -63,19 +63,22 @@ let print_string = Stdlib.print_string
 let print_endline = Stdlib.print_endline
 let prerr_endline = Stdlib.prerr_endline
 
-let print_s ?mach sexp =
-  print_endline
+let fprint_endline t string =
+  output_string t string;
+  output_char t '\n';
+  flush t
+;;
+
+let fprint_s ?mach t sexp =
+  fprint_endline
+    t
     (match mach with
      | Some () -> Sexp.to_string_mach sexp
      | None -> Sexp.to_string_hum sexp)
 ;;
 
-let eprint_s ?mach sexp =
-  prerr_endline
-    (match mach with
-     | Some () -> Sexp.to_string_mach sexp
-     | None -> Sexp.to_string_hum sexp)
-;;
+let print_s ?mach sexp = fprint_s ?mach stdout sexp
+let eprint_s ?mach sexp = fprint_s ?mach stderr sexp
 
 let with_file ?binary ?append ?fail_if_exists ?perm file ~f =
   Exn.protectx (create ?binary ?append ?fail_if_exists ?perm file) ~f ~finally:close
