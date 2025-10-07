@@ -1,3 +1,5 @@
+@@ portable
+
 (** An output channel for doing blocking writes to destinations like files and sockets.
 
     Note that an [Out_channel.t] is a custom block with a finalizer, and so is allocated
@@ -8,9 +10,8 @@
     standard library.
 
     As for the output functions in the standard library, all the functions in this module,
-    unless otherwise specified,  can raise [Sys_error] when the system calls they invoke
-    fail.
-*)
+    unless otherwise specified, can raise [Sys_error] when the system calls they invoke
+    fail. *)
 
 open! Base
 
@@ -40,8 +41,8 @@ type 'a with_create_args =
 val create : (string -> t) with_create_args
 val with_file : (string -> f:(t -> 'a) -> 'a) with_create_args
 
-(** [close t] flushes and closes [t], and may raise an exception.  [close] returns () and
-    does not raise if [t] is already closed.  [close] raises an exception if the close()
+(** [close t] flushes and closes [t], and may raise an exception. [close] returns () and
+    does not raise if [t] is already closed. [close] raises an exception if the close()
     system call on the underlying file descriptor fails (i.e. returns -1), which would
     happen in the following cases:
 
@@ -49,20 +50,19 @@ val with_file : (string -> f:(t -> 'a) -> 'a) with_create_args
     fd, which I would think a rare event.
 
     EINTR -- would happen if the system call was interrupted by a signal, which would be
-    rare.  Also, I think we should probably just catch EINTR and re-attempt the close.
+    rare. Also, I think we should probably just catch EINTR and re-attempt the close.
     Unfortunately, we can't do that in OCaml because the OCaml library marks the
     out_channel as closed even if the close syscall fails, so a subsequent call
-    [close_out_channel] will be a no-op.  This should really be fixed in the OCaml library
-    C code, having it restart the close() syscall on EINTR.  I put a couple CRs in
+    [close_out_channel] will be a no-op. This should really be fixed in the OCaml library
+    C code, having it restart the close() syscall on EINTR. I put a couple CRs in
     [fixed_close_channel], our rework of OCaml's [caml_ml_close_channel],
 
-    EIO -- I don't recall seeing this.  I think it's rare.
+    EIO -- I don't recall seeing this. I think it's rare.
 
-    See "man 2 close" for details.
-*)
+    See "man 2 close" for details. *)
 val close : t -> unit
 
-(** [close_no_err] tries to flush and close [t]. It does not raise.*)
+(** [close_no_err] tries to flush and close [t]. It does not raise. *)
 val close_no_err : t -> unit
 
 val set_binary_mode : t -> bool -> unit
@@ -87,10 +87,10 @@ val output_lines : t -> string list -> unit
 (** Outputs a single line, terminated by a newline character *)
 val output_line : t -> string -> unit
 
-(** Formatted printing to an out channel.  This is the same as [Printf.sprintf] except
-    that it outputs to [t] instead of returning a string.  Similarly, the function
-    arguments corresponding to conversions specifications such as [%a] or [%t] takes [t]
-    as argument and must print to it instead of returning a string. *)
+(** Formatted printing to an out channel. This is the same as [Printf.sprintf] except that
+    it outputs to [t] instead of returning a string. Similarly, the function arguments
+    corresponding to conversions specifications such as [%a] or [%t] takes [t] as argument
+    and must print to it instead of returning a string. *)
 val fprintf : t -> ('a, t, unit) format -> 'a
 
 (** [printf fmt] is the same as [fprintf stdout fmt] *)
