@@ -73,8 +73,8 @@ let fprint_s ?mach t sexp =
   fprint_endline
     t
     (match mach with
-     | Some () -> Sexp.to_string_mach sexp
-     | None -> Sexp.to_string_hum sexp)
+     | Some () -> Sexp.to_string_mach__stack sexp
+     | None -> Sexp.to_string_hum__stack sexp) [@nontail]
 ;;
 
 let print_s ?mach sexp = fprint_s ?mach stdout sexp

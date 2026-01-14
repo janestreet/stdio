@@ -98,10 +98,16 @@ val printf : ('a, t, unit) format -> 'a
     with [~mach:()], [Sexp.to_string_mach]. *)
 val fprint_s : ?mach:unit -> t -> Sexp.t -> unit
 
-(** [print_s ?mach sexp] is the same as [fprint_s ?mach stdout sexp]. *)
+(** [print_s ?mach sexp] is the same as [fprint_s ?mach stdout sexp].
+
+    WARNING this globalizes the [sexp] if [mach] is not passed and if your [sexp] is
+    allocated on the stack. *)
 val print_s : ?mach:unit -> Sexp.t -> unit
 
-(** [eprint_s ?mach sexp] is the same as [fprint_s ?mach stderr sexp]. *)
+(** [eprint_s ?mach sexp] is the same as [fprint_s ?mach stderr sexp].
+
+    WARNING this globalizes the [sexp] if [mach] is not passed and if your [sexp] is
+    allocated on the stack. *)
 val eprint_s : ?mach:unit -> Sexp.t -> unit
 
 (** [eprintf fmt] is the same as [fprintf stderr fmt] *)
