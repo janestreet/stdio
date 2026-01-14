@@ -68,9 +68,9 @@ val close_no_err : t -> unit
 val set_binary_mode : t -> bool -> unit
 val flush : t -> unit
 val output : t -> buf:bytes -> pos:int -> len:int -> unit
-val output_string : t -> string -> unit
+val output_string : t -> string @ local -> unit
 val output_substring : t -> buf:string -> pos:int -> len:int -> unit
-val output_bytes : t -> Bytes.t -> unit
+val output_bytes : t -> Bytes.t @ local -> unit
 val output_char : t -> char -> unit
 val output_byte : t -> int -> unit
 val output_binary_int : t -> int -> unit
@@ -120,15 +120,15 @@ val eprintf : ('a, t, unit) format -> 'a
 val kfprintf : (t -> 'a) -> t -> ('b, t, unit, 'a) format4 -> 'b
 
 (** [print_string s] = [output_string stdout s] *)
-val print_string : string -> unit
+val print_string : string @ local -> unit
 
 (** [print_endline str] outputs [str] to [stdout] followed by a newline then flushes
     [stdout] *)
-val print_endline : string -> unit
+val print_endline : string @ local -> unit
 
 (** [prerr_endline str] outputs [str] to [stderr] followed by a newline then flushes
     [stderr] *)
-val prerr_endline : string -> unit
+val prerr_endline : string @ local -> unit
 
 val seek : t -> int64 -> unit
 val pos : t -> int64

@@ -40,23 +40,7 @@ let close = Stdlib.close_out
 let close_no_err = Stdlib.close_out_noerr
 let output t ~buf ~pos ~len = Stdlib.output t buf pos len
 let output_substring t ~buf ~pos ~len = Stdlib.output_substring t buf pos len
-
-module Output_string_to_be_replaced_by_stdlib_output_string = struct
-  external unsafe_output_string
-    :  Stdlib.out_channel
-    -> string @ local
-    -> int
-    -> int
-    -> unit
-    @@ portable
-    = "caml_ml_output"
-
-  external string_length : string @ local -> int @@ portable = "%string_length"
-
-  let output_string oc s = unsafe_output_string oc s 0 (string_length s)
-end
-
-let output_string = Output_string_to_be_replaced_by_stdlib_output_string.output_string
+let output_string = Stdlib.output_string
 let output_bytes = Stdlib.output_bytes
 let output_char = Stdlib.output_char
 let output_byte = Stdlib.output_byte

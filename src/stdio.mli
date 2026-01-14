@@ -26,10 +26,10 @@ val eprint_s : ?mach:unit -> Sexp.t @ local -> unit
 val eprintf : ('a, Out_channel.t, unit) format -> 'a
 
 (** Same as {!Out_channel.print_string} *)
-val print_string : string -> unit
+val print_string : string @ local -> unit
 
 (** Same as {!Out_channel.print_endline} *)
-val print_endline : string -> unit
+val print_endline : string @ local -> unit
 
 (** Same as {!Out_channel.prerr_endline} *)
-val prerr_endline : string -> unit
+val prerr_endline : string @ local -> unit
